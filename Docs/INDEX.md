@@ -16,6 +16,8 @@ SynTools está en **Fase 0 — definición y arquitectura**.
 | Estrategia de portabilidad | `Fundamentos/PORTABILITY.md` |
 | Abstracciones de plataforma | `Fundamentos/PLATFORM_ABSTRACTIONS.md` |
 | Evaluación tecnológica | `Fundamentos/TECHNOLOGY_EVALUATION.md` |
+| Prueba técnica de candidatos | `Fundamentos/TECHNICAL_SPIKE_SPEC.md` |
+| Decisiones pendientes | `Fundamentos/PENDING_DECISIONS.md` |
 | Baseline ZEUVE | `Migracion/ZEUVE_BASELINE.md` |
 | Auditoría de portabilidad de ZEUVE | `Migracion/PORTABILITY_AUDIT.md` |
 | Matriz de paridad | `Migracion/PARITY_MATRIX.md` |
