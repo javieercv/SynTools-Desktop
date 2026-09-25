@@ -1,8 +1,8 @@
 # Evaluación tecnológica de SynTools
 
-> Estado: investigación de Fase 0D, 2026-09-25.  
+> Estado: investigación de Fase 0D contrastada con prototipos de Fase 0E, 2026-09-25.
 > No existe todavía una tecnología aprobada.  
-> Esta comparación no sustituye las pruebas técnicas reales de Fase 0E.
+> Los resultados medidos están en `../Evaluacion/COMPARATIVA_TECNOLOGICA.md`.
 
 ## Objetivo
 
@@ -183,7 +183,23 @@ Swift puede conservar valor en lógica reutilizable, pero debe demostrar que una
 | Cuestión de licencia | Baja para Avalonia | Material | Depende de dependencias |
 | Prueba crítica | calidad macOS + multimedia | licencia + complejidad | UI común + ecosistema Windows |
 
-Esta tabla no asigna puntuaciones ni ganador porque faltan mediciones reales.
+Esta tabla no asigna puntuaciones ni ganador. Las mediciones reales y sus límites se registran en los informes de Fase 0E.
+
+---
+
+# Resultado de la Fase 0E
+
+- Swift-first no supera por ahora la puerta de UI común: SwiftCrossUI permite un prototipo mínimo, pero carece de cobertura desktop suficiente; Qt Bridge añade Swift+C+++Qt+QML.
+- Avalonia produjo la implementación más directa de lógica, UI y tests comunes, con publicación macOS autocontenida de 108 MB. Su riesgo abierto es multimedia/Inspector y la condición Tier 2 de macOS 14.
+- Qt produjo la cobertura multimedia más amplia y un bundle desplegado de 119 MB. Sus riesgos abiertos son C++, complejidad de despliegue y licencia LGPLv3/comercial.
+- No hay decisión aprobada. La recomendación técnica provisional es comparar Avalonia y Qt en una puerta multimedia corta y en QA real Windows antes de elegir.
+
+Informes:
+
+- `../Evaluacion/SWIFT_GATE.md`
+- `../Evaluacion/AVALONIA_PRUEBA_TECNICA.md`
+- `../Evaluacion/QT_PRUEBA_TECNICA.md`
+- `../Evaluacion/COMPARATIVA_TECNOLOGICA.md`
 
 ---
 
@@ -204,6 +220,6 @@ Esta tabla no asigna puntuaciones ni ganador porque faltan mediciones reales.
 - Swift — Windows install: https://www.swift.org/install/windows/
 - Apple — SwiftUI apps: https://developer.apple.com/documentation/technologyoverviews/swiftui
 
-## Siguiente fase
+## Siguiente paso de decisión
 
-La elección final se aplaza hasta ejecutar la prueba técnica definida en `TECHNICAL_SPIKE_SPEC.md`.
+La elección final sigue aplazada hasta cerrar los huecos explícitos de multimedia, QA Windows y calidad macOS descritos en la comparativa. `TECHNICAL_SPIKE_SPEC.md` permanece como especificación histórica de la prueba; la documentación visible nueva utiliza “prueba técnica”.

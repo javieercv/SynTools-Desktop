@@ -1,0 +1,85 @@
+name: Pruebas técnicas Avalonia y Qt
+
+on:
+  push:
+    branches: ['codex/fase-0e-pruebas-tecnicas']
+    paths:
+      - 'PruebasTecnicas/Avalonia/**'
+      - 'PruebasTecnicas/Qt/**'
+      - 'PruebasTecnicas/Compartido/**'
+      - '.github/workflows/technical-evaluation.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  DOTNET_CLI_TELEMETRY_OPTOUT: '1'
+  DOTNET_NOLOGO: '1'
+
+jobs:
+  avalonia:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: macos-15
+            rid: osx-arm64
+          - os: windows-2025
+            rid: win-x64
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: '10.0.x'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Instalar FFmpeg (macOS)
+        if: runner.os == 'macOS'
+        run: brew install ffmpeg
+      - name: Instalar FFmpeg (Windows)
+        if: runner.os == 'Windows'
+        run: choco install ffmpeg --yes --no-progress
+      - name: Generar fixtures sintéticos
+        shell: bash
+        run: PruebasTecnicas/Compartido/Scripts/generar_fixtures.sh
+      - name: Tests de contratos
+        run: dotnet test PruebasTecnicas/Avalonia/SynTools.Probe.Tests/SynTools.Probe.Tests.csproj --configuration Release --logger "console;verbosity=normal"
+      - name: Build UI
+        run: dotnet build PruebasTecnicas/Avalonia/SynTools.Probe.App/SynTools.Probe.App.csproj --configuration Release
+      - name: Publicación autocontenida
+        run: dotnet publish PruebasTecnicas/Avalonia/SynTools.Probe.App/SynTools.Probe.App.csproj --configuration Release --runtime ${{ matrix.rid }} --self-contained true -o PruebasTecnicas/Avalonia/artifacts/${{ matrix.rid }}
+
+  qt:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-15, windows-2025]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: jurplel/install-qt-action@v4
+        with:
+          version: '6.10.0'
+          modules: 'qtmultimedia'
+          cache: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Instalar FFmpeg (macOS)
+        if: runner.os == 'macOS'
+        run: brew install ffmpeg
+      - name: Instalar FFmpeg (Windows)
+        if: runner.os == 'Windows'
+        run: choco install ffmpeg --yes --no-progress
+      - name: Generar fixtures sintéticos
+        shell: bash
+        run: PruebasTecnicas/Compartido/Scripts/generar_fixtures.sh
+      - name: Configurar
+        run: cmake -S PruebasTecnicas/Qt -B PruebasTecnicas/Qt/build-ci -G Ninja -DCMAKE_BUILD_TYPE=Release
+      - name: Compilar
+        run: cmake --build PruebasTecnicas/Qt/build-ci
+      - name: Tests de contratos
+        run: ctest --test-dir PruebasTecnicas/Qt/build-ci --output-on-failure

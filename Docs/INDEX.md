@@ -19,6 +19,9 @@ SynTools está en **Fase 0 — definición y arquitectura**.
 | Prueba técnica de candidatos | `Fundamentos/TECHNICAL_SPIKE_SPEC.md` |
 | Decisiones pendientes | `Fundamentos/PENDING_DECISIONS.md` |
 | Puerta técnica Swift | `Evaluacion/SWIFT_GATE.md` |
+| Prueba técnica Avalonia | `Evaluacion/AVALONIA_PRUEBA_TECNICA.md` |
+| Prueba técnica Qt | `Evaluacion/QT_PRUEBA_TECNICA.md` |
+| Comparativa medida de Fase 0E | `Evaluacion/COMPARATIVA_TECNOLOGICA.md` |
 | Baseline ZEUVE | `Migracion/ZEUVE_BASELINE.md` |
 | Auditoría de portabilidad de ZEUVE | `Migracion/PORTABILITY_AUDIT.md` |
 | Matriz de paridad | `Migracion/PARITY_MATRIX.md` |

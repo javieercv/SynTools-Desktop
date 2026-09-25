@@ -2,9 +2,23 @@
 bin/
 obj/
 build/
+build-*/
 dist/
 out/
 artifacts/
+.build/
+.vs/
+TestResults/
+*.trx
+*.coverage
+*.dSYM/
+*.app/
+!PruebasTecnicas/Avalonia/SynTools.Probe.App/
+!PruebasTecnicas/Avalonia/SynTools.Probe.App/*.cs
+!PruebasTecnicas/Avalonia/SynTools.Probe.App/*.csproj
+*.exe
+*.dll
+*.pdb
 
 # IDE/user state
 .vs/
@@ -28,6 +42,13 @@ desktop.ini
 *.temp
 tmp/
 Temp/
+PruebasTecnicas/Compartido/Fixtures/Generados/
+PruebasTecnicas/Compartido/Resultados/Locales/
+PruebasTecnicas/**/Package.resolved
+PruebasTecnicas/**/packages/
+PruebasTecnicas/**/.packages/
+PruebasTecnicas/**/SDKs/
+PruebasTecnicas/**/.cache/
 
 # Secrets/local configuration
 .env
