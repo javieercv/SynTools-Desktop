@@ -14,8 +14,10 @@ SynTools está en **Fase 0 — definición y arquitectura**.
 | Seguridad y privacidad | `Fundamentos/SECURITY.md` |
 | Pruebas | `Fundamentos/TESTING.md` |
 | Estrategia de portabilidad | `Fundamentos/PORTABILITY.md` |
+| Abstracciones de plataforma | `Fundamentos/PLATFORM_ABSTRACTIONS.md` |
 | Evaluación tecnológica | `Fundamentos/TECHNOLOGY_EVALUATION.md` |
 | Baseline ZEUVE | `Migracion/ZEUVE_BASELINE.md` |
+| Auditoría de portabilidad de ZEUVE | `Migracion/PORTABILITY_AUDIT.md` |
 | Matriz de paridad | `Migracion/PARITY_MATRIX.md` |
 | macOS | `Plataformas/MACOS.md` |
 | Windows | `Plataformas/WINDOWS.md` |
