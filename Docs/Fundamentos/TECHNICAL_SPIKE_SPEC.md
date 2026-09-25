@@ -11,12 +11,12 @@ No se busca implementar un módulo completo ni empezar la migración.
 ## Candidatos iniciales
 
 - .NET 10 + Avalonia.
-- Qt 6 + C++/Qt Quick o Widgets, según se determine en la preparación del spike.
+- Qt 6 + C++/Qt Quick o Widgets, según se determine en la preparación del prototipo.
 - Swift-first solo si se identifica una ruta de UI única razonable antes de invertir en un prototipo completo.
 
 ## Regla de igualdad
 
-Los candidatos que lleguen al spike deben resolver los mismos escenarios funcionales y usar los mismos fixtures siempre que sea posible.
+Los candidatos que lleguen al prototipo deben resolver los mismos escenarios funcionales y usar los mismos fixtures siempre que sea posible.
 
 No se acepta declarar ganador a un candidato por una demo que el otro no haya tenido que implementar.
 
@@ -245,7 +245,7 @@ Un candidato puede descartarse si:
 - obliga a degradar reglas de seguridad/privacidad;
 - necesita una cantidad desproporcionada de código de plataforma para funciones normales.
 
-## Resultado del spike
+## Resultado de la prueba técnica
 
 Crear un informe por candidato con:
 
@@ -263,7 +263,7 @@ Crear un informe por candidato con:
 
 Después se presentará una recomendación técnica, pero la elección seguirá necesitando aprobación explícita del usuario.
 
-## Código del spike
+## Código de la prueba técnica
 
 El código de evaluación debe mantenerse separado del código futuro de producción.
 
