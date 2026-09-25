@@ -4,7 +4,7 @@ public enum ProbeSection: String, CaseIterable, Identifiable, Hashable, Sendable
     case history = "Historial"
     case settings = "Ajustes"
 
-    public var id: String { rawValue }
+    public var id: Self { self }
 
     public var description: String {
         switch self {
