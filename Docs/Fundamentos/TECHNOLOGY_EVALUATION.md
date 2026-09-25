@@ -2,7 +2,7 @@
 
 > Estado: investigación de Fase 0D, 2026-09-25.  
 > No existe todavía una tecnología aprobada.  
-> Esta comparación no sustituye la prueba técnica real de Fase 0E.
+> Esta comparación no sustituye las pruebas técnicas reales de Fase 0E.
 
 ## Objetivo
 
