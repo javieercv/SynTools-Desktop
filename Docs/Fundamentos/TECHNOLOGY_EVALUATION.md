@@ -132,6 +132,16 @@ Sin embargo, ese soporte no convierte SwiftUI/AppKit en frameworks de Windows. A
 3. Swift común + Qt/u otra UI mediante FFI.
 4. Reutilizar solo algunos paquetes de lógica Swift.
 
+### Ruta concreta descubierta para la prueba
+
+SwiftCrossUI ofrece actualmente una UI declarativa escrita en Swift con backends nativos:
+
+- AppKitBackend en macOS;
+- WinUIBackend en Windows;
+- DefaultBackend para seleccionar automáticamente el backend.
+
+Su propio proyecto se describe como work in progress, por lo que se incorpora únicamente a `PruebasTecnicas/Swift` para medirlo. No constituye una aprobación tecnológica.
+
 ## Ventajas para SynTools
 
 - Permitiría conservar más conocimiento y posiblemente parte de la lógica Swift existente.

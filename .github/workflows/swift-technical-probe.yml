@@ -1,0 +1,73 @@
+name: Swift technical probe
+
+on:
+  push:
+    paths:
+      - 'PruebasTecnicas/Swift/**'
+      - '.github/workflows/swift-technical-probe.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  macos:
+    name: macOS · SwiftCrossUI/AppKit
+    runs-on: macos-15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Xcode 16.4
+        uses: maxim-lobanov/setup-xcode@v1.6.0
+        with:
+          xcode-version: '16.4'
+
+      - name: Swift version
+        run: swift --version
+
+      - name: Resolve
+        working-directory: PruebasTecnicas/Swift
+        run: swift package resolve
+
+      - name: Build
+        working-directory: PruebasTecnicas/Swift
+        run: swift build -c release --product SynToolsSwiftProbe
+
+      - name: Tests
+        working-directory: PruebasTecnicas/Swift
+        run: swift test
+
+  windows:
+    name: Windows · SwiftCrossUI/WinUI
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Visual Studio environment
+        uses: seanmiddleditch/gha-setup-vsdevenv@v5
+
+      - name: Setup Swift 6.1
+        uses: compnerd/gha-setup-swift@v0.3.0
+        with:
+          branch: swift-6.1-release
+          tag: 6.1-RELEASE
+
+      - name: Swift version
+        run: swift --version
+
+      - name: Resolve
+        working-directory: PruebasTecnicas/Swift
+        run: swift package resolve
+
+      - name: Build
+        working-directory: PruebasTecnicas/Swift
+        run: swift build -c release --product SynToolsSwiftProbe
+
+      - name: Tests
+        working-directory: PruebasTecnicas/Swift
+        run: swift test

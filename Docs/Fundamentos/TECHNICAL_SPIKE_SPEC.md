@@ -12,7 +12,7 @@ No se busca implementar un módulo completo ni empezar la migración.
 
 - .NET 10 + Avalonia.
 - Qt 6 + C++/Qt Quick o Widgets, según se determine en la preparación del prototipo.
-- Swift-first solo si se identifica una ruta de UI única razonable antes de invertir en un prototipo completo.
+- Swift + SwiftCrossUI como primera puerta técnica, al existir una ruta concreta de UI única AppKit/WinUI que debe validarse.
 
 ## Regla de igualdad
 
